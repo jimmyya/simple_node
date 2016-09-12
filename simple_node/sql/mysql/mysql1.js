@@ -12,12 +12,5 @@ var db=mysql.createConnection({
 
 db.query(
     'insert into work(hours,date,archived,description)' +
-    ' values("2","2001-01-01",1,"没有")',
-    [],
-    function (err) {
-        console.log('插入');
-        if(err) throw err;
-    }
+    ' values("2","2001-01-01",1,"没有")'
 );
-
-db.close;

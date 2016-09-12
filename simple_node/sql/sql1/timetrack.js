@@ -62,7 +62,7 @@ exports.add=function(db,req,res) {
     exports.parseReceivedData(req,function (work) {
         db.query(
             "insert into work(hours,date,description)" +
-            "values(?,?,?)",
+            " values(?,?,?)",
             [work.hours,work.date,work.description],
             function (err) {
                 if(err) throw err;
