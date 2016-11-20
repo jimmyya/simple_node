@@ -1,5 +1,9 @@
 /**
  * Created by CHEN on 2016/9/11.
+ *
+ * 301 代表暂时性转移 将老地址的pagerank等信息带到新地址
+ * 302 代表永久性转移
+ *
  */
 var http=require('http')
 
