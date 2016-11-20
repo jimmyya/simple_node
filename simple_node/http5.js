@@ -1,5 +1,6 @@
 /**
  * Created by CHEN on 2016/9/11.
+ * 细化error
  */
 var http=require('http')
 var parse =require('url').parse;
@@ -11,8 +12,9 @@ var root =__dirname;
 var server=http.createServer(function (req,res) {
     var url=parse(req.url);
     var path=join(root,url.path);
-    fs.stat(path,function (error,stat) {
+    fs.stat(path,function (err,stat) {
         if(err) {
+            console.log(err.code)
             if('ENOENT'==err.code) {
                 res.statusCode=404;
                 res.end('Not Found');
