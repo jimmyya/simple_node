@@ -3,7 +3,9 @@
  */
 var http=require('http');
 var items=[];
-
+/**
+ * 获得请求 并进行分类
+ */
 var server =http.createServer(function (req,res) {
     if('/'==req.url) {
         switch (req.method) {//req的http method
@@ -21,7 +23,10 @@ var server =http.createServer(function (req,res) {
         notFound(res);
     }
 })
-
+/**
+ * get 方法
+ * @param res
+ */
 function show(res) {
     var html=
         '<!DOCTYPE html>' +
@@ -48,18 +53,29 @@ function show(res) {
     res.end(html);
 }
 
+/**
+ * 该资源不存在
+ * @param res
+ */
 function notFound(res) {
     res.statusCode=404;
     res.setHeader('Content-Type','text/plain');
     res.end('Not Found');
 }
 
+/**
+ *
+ * @param res
+ */
 function badRequest(res) {
     res.statueCode=400;
     res.setHeader('Content-Type','text/html');
     res.end('Bad Request');
 }
 
+/**
+ * 提交数据
+ */
 var qs=require('querystring');//请求参数模块
 function add(req,res) {
     var body='';
